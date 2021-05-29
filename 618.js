@@ -37,7 +37,11 @@ $.cookie = '';
 $.inviteList = [];
 $.pkInviteList = [];
 $.secretpInfo = {};
-$.innerPkInviteList = [];
+$.innerPkInviteList = [
+"sSKNX-MpqKOJsNu-kMrcUca2P-y6wocbUExkHcOUIDcW1s-3lA9AawfroaNSB78",
+"sSKNX-MpqKOJsNu9yprcBXgAcV88DAii74ekABxISekmbP_OS4Z-QkjjBw0tKUI",
+"sSKNX-MpqKMGZAtsETeOWxHxUJ0ah3arZehhc7r2VA",
+];
 // $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/jd_zooShareCode.txt").then((text) => (innerPkInviteList = text.split('\n')))
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
