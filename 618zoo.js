@@ -1,6 +1,6 @@
 /*
 动物联萌 618活动
-更新时间：2021-06-03 09:03
+更新时间：2021-06-05 06:31
 做任务，收金币
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 // quantumultx
@@ -116,8 +116,8 @@ function zoo_getTaskDetail(shopSign = "",appSign = "",timeout = 0){
           for (let i = 0;i < data.data.result.taskVos.length;i ++) {
             //if (merge.black)  return ;
             console.log( "\n" + data.data.result.taskVos[i].taskType + '-' + data.data.result.taskVos[i].taskName + (appSign&&"（小程序）") + '-'  +  (data.data.result.taskVos[i].status === 1 ? `已完成${data.data.result.taskVos[i].times}-未完成${data.data.result.taskVos[i].maxTimes}` : "全部已完成")  )
-            if ([1,3,5,7,9,26].includes(data.data.result.taskVos[i].taskType) && data.data.result.taskVos[i].status === 1 ) {
-              let list = data.data.result.taskVos[i].brandMemberVos||data.data.result.taskVos[i].followShopVo||data.data.result.taskVos[i].shoppingActivityVos||data.data.result.taskVos[i].browseShopVo
+            if ([1,2,3,5,7,9,26].includes(data.data.result.taskVos[i].taskType) && data.data.result.taskVos[i].status === 1 ) {
+              let list = data.data.result.taskVos[i].productInfoVos||data.data.result.taskVos[i].brandMemberVos||data.data.result.taskVos[i].followShopVo||data.data.result.taskVos[i].shoppingActivityVos||data.data.result.taskVos[i].browseShopVo
               //console.log(list)
               //if (data.data.result.taskVos[i].taskType === 9) continue
               for (let k = data.data.result.taskVos[i].times; k < data.data.result.taskVos[i].maxTimes; k++) {
@@ -125,7 +125,7 @@ function zoo_getTaskDetail(shopSign = "",appSign = "",timeout = 0){
                   if (list[j].status === 1) {
                     //let taskBody = `functionId=zoo_collectScore&body={"taskId":"${data.data.result.taskVos[i].taskId}","actionType":1,"taskToken":"${list[j].taskToken}","ss":"{\\"extraData\\":{\\"log\\":\\"${sign}\\",\\"sceneid\\":\\"DR216hPageh5\\"},\\"secretp\\":\\"${secretp}\\",\\"random\\":\\"${rnd}\\"}"}&client=wh5&clientVersion=1.0.0`
                     let taskBody = `functionId=zoo_collectScore&body=${JSON.stringify({"taskId": data.data.result.taskVos[i].taskId,"actionType":1,"taskToken" : list[j].taskToken,"ss" : getBody()})}&client=wh5&clientVersion=1.0.0`
-                    console.log("\n"+(list[j].title||list[j].shopName))
+                    console.log("\n"+(list[j].title||list[j].shopName||list[j].skuName))
                     await zoo_collectScore(taskBody,2000)
                     //}
                     list[j].status = 2;
@@ -153,7 +153,7 @@ function zoo_getTaskDetail(shopSign = "",appSign = "",timeout = 0){
                 }
             }
 
-            if ([2].includes(data.data.result.taskVos[i].taskType) && data.data.result.taskVos[i].status === 1) {
+            if ([2].includes(data.data.result.taskVos[i].taskType) && data.data.result.taskVos[i].status === 1 && !data.data.result.taskVos[i].taskName.includes("逛逛")) {
               for (let k = data.data.result.taskVos[i].times; k < data.data.result.taskVos[i].maxTimes; k++) {
                 await zoo_getFeedDetail(data.data.result.taskVos[i].taskId)
               }
@@ -641,7 +641,7 @@ function zoo_getHomeData(inviteId= "",timeout = 0) {
             secretp = data.data.result.homeMainInfo.secretp
             await zoo_collectProduceScore();
             if (merge.black) return;
-            await zoo_pk_getHomeData('sSKNX-MpqKOJsNu-kMrcUca2P-y6wocbUExkHcOUIDcW1s-3lA9AawfroaNSB7Qv')
+            await zoo_pk_getHomeData('sSKNX-MpqKOJsNu_mZneBluwe_DRzs1f90l6Q_p8OVxtoB-JJEErrVU4eHW7e2I')
             //await zoo_pk_assistGroup()
             //if (data.data.result.homeMainInfo.raiseInfo.buttonStatus === 1 )
             if (parseInt(data.data.result.homeMainInfo.raiseInfo.totalScore) >= parseInt(data.data.result.homeMainInfo.raiseInfo.nextLevelScore) ) await zoo_raise(1000)
@@ -816,7 +816,7 @@ function zoo_pk_getHomeData(inviteId = "",timeout = 0) {
       $.post(url, async (err, resp, data) => {
         try {
           if (inviteId !== "") {
-            await $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/jd_zooShareCode.txt").then((text) => (shareCodeList = text.split('\n')))
+            await $.getScript("https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/memo/jd_nianBeastShareCode.txt").then((text) => (shareCodeList = text.split('\n')))
             for (let i in shareCodeList) {
               if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
             }
