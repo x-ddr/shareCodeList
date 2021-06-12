@@ -47,8 +47,8 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
           continue;
         }
         console.log('\n\n京东账号：'+merge.nickname + ' 任务开始')
-        await zoo_pk_getHomeData();
-        await zoo_getHomeData();
+//         await zoo_pk_getHomeData();
+//         await zoo_getHomeData();
         if (merge.black) continue;
         //await qryCompositeMaterials()
         await msgShow();
