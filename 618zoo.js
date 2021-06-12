@@ -104,7 +104,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -189,7 +189,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -227,7 +227,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -263,7 +263,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -304,7 +304,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -342,7 +342,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -380,7 +380,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`,
             'Content-Type' : `application/x-www-form-urlencoded`
@@ -420,7 +420,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -469,7 +469,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -509,7 +509,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -558,7 +558,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `*/*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`,
             'Content-Type' : 'application/x-www-form-urlencoded',
@@ -628,7 +628,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -649,7 +649,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
               secretp = data.data.result.homeMainInfo.secretp
               await zoo_collectProduceScore();
               if (merge.black) return;
-              await zoo_pk_getHomeData('sSKNX-MpqKOJsNu-kMrcUca2P-y6wocbUExkHcOUIDcW1s-3lA9AawfroaNSB7Ur')
+              await zoo_pk_getHomeData('sSKNX-MpqKOJsNu-kMrcUca2P-y6wocbUExkHcOUIDcW1s-3lA9AawfroaNSB7Up')
               //await zoo_pk_assistGroup()
               //if (data.data.result.homeMainInfo.raiseInfo.buttonStatus === 1 )
               if (parseInt(data.data.result.homeMainInfo.raiseInfo.totalScore) >= parseInt(data.data.result.homeMainInfo.raiseInfo.nextLevelScore) ) await zoo_raise(1000)
@@ -682,7 +682,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -714,7 +714,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -751,7 +751,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             'Connection' : `keep-alive`,
             'Accept' : `application/json, text/plain, */*`,
             'Host' : `api.m.jd.com`,
-            'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
             'Accept-Encoding' : `gzip, deflate, br`,
             'Accept-Language' : `zh-cn`
           },
@@ -785,7 +785,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
               let list = data.data.result.groupInfo.skillList;
               for (let i = list.length -1; i>=0; i--) {
                 if (parseInt(list[i].num) > 0) {
-//                   //await zoo_pk_doPkSkill(list[i].code,800);
+                  //await zoo_pk_doPkSkill(list[i].code,800);
                   await zoo_pk_getHomeData();
                   break;
                 }
