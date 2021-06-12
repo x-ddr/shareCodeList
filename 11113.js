@@ -25,7 +25,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
   //Node.js用户请在jdCookie.js处填写京东ck;
   //IOS等用户直接用NobyDa的jd cookie
   let cookiesArr = [], cookie = '',secretp = '',shareCodeList = [],showCode = true;
-  let doPkSkill = true;  //自动放技能，不需要的改为false
+  let doPkSkill = false;  //自动放技能，不需要的改为false
   const JD_API_HOST = `https://api.m.jd.com/client.action?functionId=`;
   !(async () => {
     await requireConfig()
@@ -47,6 +47,8 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
           continue;
         }
         console.log('\n\n京东账号：'+merge.nickname + ' 任务开始')
+        await zoo_pk_getHomeData();
+        await zoo_getHomeData();
         if (merge.black) continue;
         //await qryCompositeMaterials()
         await msgShow();
@@ -580,38 +582,38 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
   //   }
   
   //群组助力
-//   function zoo_pk_assistGroup(inviteId = "",timeout = 0) {
-//     return new Promise((resolve) => {
-//       setTimeout( ()=>{
-//         let url = {
-//           url : `${JD_API_HOST}zoo_pk_assistGroup`  ,
-//           headers : {
-//             'Origin' : `https://wbbny.m.jd.com`,
-//             'Cookie' : cookie,
-//             'Connection' : `keep-alive`,
-//             'Accept' : `application/json, text/plain, */*`,
-//             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.6;14.1;`,
-//             'Accept-Encoding' : `gzip, deflate, br`,
-//             'Accept-Language' : `zh-cn`,
-//             'Refer' : `https://bunearth.m.jd.com/babelDiy/Zeus/4SJUHwGdUQYgg94PFzjZZbGZRjDd/index.html?jmddToSmartEntry=login`
-//           },
-//           body : `functionId=zoo_pk_assistGroup&body=${JSON.stringify({"confirmFlag": 1,"inviteId" : inviteId,"ss" : getBody()})}&client=wh5&clientVersion=1.0.0`
-//         }
-//         //console.log(url.body)
-//         $.post(url, async (err, resp, data) => {
-//           try {
-//             //console.log('商圈助力：' + data)
-//             data = JSON.parse(data);
-//           } catch (e) {
-//             $.logErr(e, resp);
-//           } finally {
-//             resolve()
-//           }
-//         })
-//       },timeout)
-//     })
-//   }
+  function zoo_pk_assistGroup(inviteId = "",timeout = 0) {
+    return new Promise((resolve) => {
+      setTimeout( ()=>{
+        let url = {
+          url : `${JD_API_HOST}zoo_pk_assistGroup`  ,
+          headers : {
+            'Origin' : `https://wbbny.m.jd.com`,
+            'Cookie' : cookie,
+            'Connection' : `keep-alive`,
+            'Accept' : `application/json, text/plain, */*`,
+            'Host' : `api.m.jd.com`,
+            'User-Agent' : `jdapp;iPhone;9.2.6;14.1;`,
+            'Accept-Encoding' : `gzip, deflate, br`,
+            'Accept-Language' : `zh-cn`,
+            'Refer' : `https://bunearth.m.jd.com/babelDiy/Zeus/4SJUHwGdUQYgg94PFzjZZbGZRjDd/index.html?jmddToSmartEntry=login`
+          },
+          body : `functionId=zoo_pk_assistGroup&body=${JSON.stringify({"confirmFlag": 1,"inviteId" : inviteId,"ss" : getBody()})}&client=wh5&clientVersion=1.0.0`
+        }
+        //console.log(url.body)
+        $.post(url, async (err, resp, data) => {
+          try {
+            //console.log('商圈助力：' + data)
+            data = JSON.parse(data);
+          } catch (e) {
+            $.logErr(e, resp);
+          } finally {
+            resolve()
+          }
+        })
+      },timeout)
+    })
+  }
   
   //获取首页信息
   function zoo_getHomeData(inviteId= "",timeout = 0) {
@@ -651,9 +653,8 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             //   await zoo_pk_getHomeData('sSKNX-MpqKOJsNu9yprcBXgAcV88DAii74ekABxISekmbP_OS4Z-QkjjBw0tKUgN')
             //   console.log("pk2")
             //   await zoo_pk_getHomeData('sSKNX-MpqKMGZAtsETeOWxHxUJ0ah3arZehhc7r2XtY')
-            //   console.log("pk3")
-              //await zoo_pk_assistGroup()
               console.log("pk3")
+              //await zoo_pk_assistGroup()
               //if (data.data.result.homeMainInfo.raiseInfo.buttonStatus === 1 )
               if (parseInt(data.data.result.homeMainInfo.raiseInfo.totalScore) >= parseInt(data.data.result.homeMainInfo.raiseInfo.nextLevelScore) ) await zoo_raise(1000)
             //   await zoo_getHomeData('ZXTKT0225KkcRhdI8AHeJx_8x_9cIgFjRWn6-7zx55awQ');
@@ -661,10 +662,9 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
             //   await zoo_getHomeData('ZXTKT0225KkcRU0Y8FXeJBL2xqFbcQFjRWn6-7zx55awQ');
             //   console.log("pk2")
             //   await zoo_getHomeData('ZXTKT011a33MlJa1ogsFjRWn6-7zx55awQ');
-            //   console.log("pk3")
+              console.log("pk3")
             //   await zoo_getTaskDetail()
             //   await zoo_getTaskDetail("","app")
-            console.log("pk3")
             } else {
               return
             }
@@ -747,66 +747,66 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
   //     })
   //   }
   
-//   function zoo_pk_getHomeData(inviteId = "",timeout = 0) {
-//     return new Promise((resolve) => {
-//       setTimeout( ()=>{
-//         let url = {
-//           url : `${JD_API_HOST}zoo_pk_getHomeData`  ,
-//           headers : {
-//             'Origin' : `https://wbbny.m.jd.com`,
-//             'Cookie' : cookie,
-//             'Connection' : `keep-alive`,
-//             'Accept' : `application/json, text/plain, */*`,
-//             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
-//             'Accept-Encoding' : `gzip, deflate, br`,
-//             'Accept-Language' : `zh-cn`
-//           },
-//           body : `functionId=zoo_pk_getHomeData&body={}&client=wh5&clientVersion=1.0.0`
-//         }
-//         $.post(url, async (err, resp, data) => {
-//           try {
-//             if (inviteId !== "") {
-//               await $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/jd_zooShareCode.txt").then((text) => (shareCodeList = text ? text.split('\n') : []))
-//               for (let i in shareCodeList) {
-//                 if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
-//               }
-//               //await zoo_pk_assistGroup(inviteId);
-//             } else {
-//               //console.log(data);
-//               data = JSON.parse(data);
-//               if (showCode) {
-//                 console.log('您的队伍助力码：' + data.data.result.groupInfo.groupAssistInviteId);
-//                 showCode = false;
-//               }
-//               if (!doPkSkill) return ;
-//               if (typeof data.data.result.groupPkInfo.dayTotalValue !== "undefined") {
-//                 if (parseInt(data.data.result.groupPkInfo.dayTotalValue) >= parseInt(data.data.result.groupPkInfo.dayTargetSell)) return;
-//               }
-//               else
-//               if (typeof data.data.result.groupPkInfo.nightTotalValue !== "undefined") {
-//                 if (parseInt(data.data.result.groupPkInfo.nightTotalValue) >= parseInt(data.data.result.groupPkInfo.nightTargetSell)) return;
-//               }
-//               else
-//                 return;
-//               let list = data.data.result.groupInfo.skillList;
-//               for (let i = list.length -1; i>=0; i--) {
-//                 if (parseInt(list[i].num) > 0) {
-//                  // await zoo_pk_doPkSkill(list[i].code,800);
-//                   await zoo_pk_getHomeData();
-//                   break;
-//                 }
-//               }
-//             }
-//           } catch (e) {
-//             $.logErr(e, resp);
-//           } finally {
-//             resolve()
-//           }
-//         })
-//       },timeout)
-//     })
-//   }
+  function zoo_pk_getHomeData(inviteId = "",timeout = 0) {
+    return new Promise((resolve) => {
+      setTimeout( ()=>{
+        let url = {
+          url : `${JD_API_HOST}zoo_pk_getHomeData`  ,
+          headers : {
+            'Origin' : `https://wbbny.m.jd.com`,
+            'Cookie' : cookie,
+            'Connection' : `keep-alive`,
+            'Accept' : `application/json, text/plain, */*`,
+            'Host' : `api.m.jd.com`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
+            'Accept-Encoding' : `gzip, deflate, br`,
+            'Accept-Language' : `zh-cn`
+          },
+          body : `functionId=zoo_pk_getHomeData&body={}&client=wh5&clientVersion=1.0.0`
+        }
+        $.post(url, async (err, resp, data) => {
+          try {
+            if (inviteId !== "") {
+            //   await $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/jd_zooShareCode.txt").then((text) => (shareCodeList = text ? text.split('\n') : []))
+            //   for (let i in shareCodeList) {
+            //     if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
+            //   }
+              //await zoo_pk_assistGroup(inviteId);
+            } else {
+              //console.log(data);
+              data = JSON.parse(data);
+              if (showCode) {
+                console.log('您的队伍助力码：' + data.data.result.groupInfo.groupAssistInviteId);
+                showCode = false;
+              }
+              if (!doPkSkill) return ;
+              if (typeof data.data.result.groupPkInfo.dayTotalValue !== "undefined") {
+                if (parseInt(data.data.result.groupPkInfo.dayTotalValue) >= parseInt(data.data.result.groupPkInfo.dayTargetSell)) return;
+              }
+              else
+              if (typeof data.data.result.groupPkInfo.nightTotalValue !== "undefined") {
+                if (parseInt(data.data.result.groupPkInfo.nightTotalValue) >= parseInt(data.data.result.groupPkInfo.nightTargetSell)) return;
+              }
+              else
+                return;
+              let list = data.data.result.groupInfo.skillList;
+              for (let i = list.length -1; i>=0; i--) {
+                if (parseInt(list[i].num) > 0) {
+                 // await zoo_pk_doPkSkill(list[i].code,800);
+                  await zoo_pk_getHomeData();
+                  break;
+                }
+              }
+            }
+          } catch (e) {
+            $.logErr(e, resp);
+          } finally {
+            resolve()
+          }
+        })
+      },timeout)
+    })
+  }
   
   function requireConfig() {
     return new Promise(resolve => {
