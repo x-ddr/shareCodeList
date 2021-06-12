@@ -103,7 +103,7 @@ function QueryJDUserInfo(i,timeout = 0) {
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -188,7 +188,7 @@ function QueryJDUserInfo(i,timeout = 0) {
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -226,7 +226,7 @@ function QueryJDUserInfo(i,timeout = 0) {
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -262,7 +262,7 @@ function QueryJDUserInfo(i,timeout = 0) {
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -303,7 +303,7 @@ function QueryJDUserInfo(i,timeout = 0) {
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -341,7 +341,7 @@ function QueryJDUserInfo(i,timeout = 0) {
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -379,7 +379,7 @@ function zoo_collectProduceScore(timeout = 0){
           'Connection' : `keep-alive`,
           'Accept' : `application/json, text/plain, */*`,
           'Host' : `api.m.jd.com`,
-          'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+          'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
           'Accept-Encoding' : `gzip, deflate, br`,
           'Accept-Language' : `zh-cn`,
           'Content-Type' : `application/x-www-form-urlencoded`
@@ -419,7 +419,7 @@ function zoo_collectProduceScore(timeout = 0){
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -468,7 +468,7 @@ function zoo_collectProduceScore(timeout = 0){
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -508,7 +508,7 @@ function zoo_collectProduceScore(timeout = 0){
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -557,7 +557,7 @@ function zoo_collectProduceScore(timeout = 0){
 //             'Connection' : `keep-alive`,
 //             'Accept' : `*/*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`,
 //             'Content-Type' : 'application/x-www-form-urlencoded',
@@ -627,7 +627,7 @@ function zoo_getHomeData(inviteId= "",timeout = 0) {
           'Connection' : `keep-alive`,
           'Accept' : `application/json, text/plain, */*`,
           'Host' : `api.m.jd.com`,
-          'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+          'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
           'Accept-Encoding' : `gzip, deflate, br`,
           'Accept-Language' : `zh-cn`
         },
@@ -689,7 +689,7 @@ function zoo_raise(timeout = 0) {
           'Connection' : `keep-alive`,
           'Accept' : `application/json, text/plain, */*`,
           'Host' : `api.m.jd.com`,
-          'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+          'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
           'Accept-Encoding' : `gzip, deflate, br`,
           'Accept-Language' : `zh-cn`
         },
@@ -721,7 +721,7 @@ function zoo_raise(timeout = 0) {
 //             'Connection' : `keep-alive`,
 //             'Accept' : `application/json, text/plain, */*`,
 //             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
 //             'Accept-Encoding' : `gzip, deflate, br`,
 //             'Accept-Language' : `zh-cn`
 //           },
@@ -758,7 +758,7 @@ function zoo_pk_getHomeData(inviteId = "",timeout = 0) {
           'Connection' : `keep-alive`,
           'Accept' : `application/json, text/plain, */*`,
           'Host' : `api.m.jd.com`,
-          'User-Agent' : `jdapp;iPhone;9.2.0;14.1;`,
+          'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
           'Accept-Encoding' : `gzip, deflate, br`,
           'Accept-Language' : `zh-cn`
         },
