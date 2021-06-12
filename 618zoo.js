@@ -785,7 +785,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
               let list = data.data.result.groupInfo.skillList;
               for (let i = list.length -1; i>=0; i--) {
                 if (parseInt(list[i].num) > 0) {
-                  await zoo_pk_doPkSkill(list[i].code,800);
+//                   //await zoo_pk_doPkSkill(list[i].code,800);
                   await zoo_pk_getHomeData();
                   break;
                 }
