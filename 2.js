@@ -408,7 +408,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
     })
   }
   
-  做任务
+  //做任务
   function zoo_collectScore(taskBody,timeout = 0){
     return new Promise((resolve) => {
       setTimeout( ()=>{
