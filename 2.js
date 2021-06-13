@@ -408,54 +408,54 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
     })
   }
   
-  //做任务
-//   function zoo_collectScore(taskBody,timeout = 0){
-//     return new Promise((resolve) => {
-//       setTimeout( ()=>{
-//         let url = {
-//           url : `${JD_API_HOST}zoo_collectScore`,
-//           headers : {
-//             'Origin' : `https://wbbny.m.jd.com`,
-//             'Cookie' : cookie,
-//             'Connection' : `keep-alive`,
-//             'Accept' : `application/json, text/plain, */*`,
-//             'Host' : `api.m.jd.com`,
-//             'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
-//             'Accept-Encoding' : `gzip, deflate, br`,
-//             'Accept-Language' : `zh-cn`
-//           },
-//           body : taskBody
-//           }
-//         //console.log(url.body)
-//         $.post(url, async (err, resp, data) => {
-//           try {
-//             //console.log(data)
-//             data = JSON.parse(data);
-//             console.log('任务执行结果：' + data.data.bizMsg)
-//             if (data.data.bizCode === -1002) {
-//               //console.log(url.body)
-//               //console.log('\n提示火爆，休息5秒')
-//               //await $.wait(5000)
-//               //await zoo_collectScore(taskBody)
-//               //console.log('此账号暂不可使用脚本，脚本终止！')
-//               //merge.black = true;
-//               return ;
-//             }
-//             if (data.data.bizCode === 0 && typeof data.data.result.taskToken !== "undefined") {
-//               //console.log('需要再次执行,如提示活动异常请多次重试，个别任务多次执行也不行就去APP做吧！')
-//               let taskBody = encodeURIComponent(`{"dataSource":"newshortAward","method":"getTaskAward","reqParams":"{\\"taskToken\\":\\"${data.data.result.taskToken}\\"}","sdkVersion":"1.0.0","clientLanguage":"zh"}`)
-//               //console.log(taskBody)
-//               await qryViewkitCallbackResult(taskBody,7000)
-//             }
-//           } catch (e) {
-//             $.logErr(e, resp);
-//           } finally {
-//             resolve()
-//           }
-//         })
-//       },timeout)
-//     })
-//   }
+  做任务
+  function zoo_collectScore(taskBody,timeout = 0){
+    return new Promise((resolve) => {
+      setTimeout( ()=>{
+        let url = {
+          url : `${JD_API_HOST}zoo_collectScore`,
+          headers : {
+            'Origin' : `https://wbbny.m.jd.com`,
+            'Cookie' : cookie,
+            'Connection' : `keep-alive`,
+            'Accept' : `application/json, text/plain, */*`,
+            'Host' : `api.m.jd.com`,
+            'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN`,
+            'Accept-Encoding' : `gzip, deflate, br`,
+            'Accept-Language' : `zh-cn`
+          },
+          body : taskBody
+          }
+        //console.log(url.body)
+        $.post(url, async (err, resp, data) => {
+          try {
+            //console.log(data)
+            data = JSON.parse(data);
+            console.log('任务执行结果：' + data.data.bizMsg)
+            if (data.data.bizCode === -1002) {
+              //console.log(url.body)
+              //console.log('\n提示火爆，休息5秒')
+              //await $.wait(5000)
+              //await zoo_collectScore(taskBody)
+              //console.log('此账号暂不可使用脚本，脚本终止！')
+              //merge.black = true;
+              return ;
+            }
+            if (data.data.bizCode === 0 && typeof data.data.result.taskToken !== "undefined") {
+              //console.log('需要再次执行,如提示活动异常请多次重试，个别任务多次执行也不行就去APP做吧！')
+              let taskBody = encodeURIComponent(`{"dataSource":"newshortAward","method":"getTaskAward","reqParams":"{\\"taskToken\\":\\"${data.data.result.taskToken}\\"}","sdkVersion":"1.0.0","clientLanguage":"zh"}`)
+              //console.log(taskBody)
+              await qryViewkitCallbackResult(taskBody,7000)
+            }
+          } catch (e) {
+            $.logErr(e, resp);
+          } finally {
+            resolve()
+          }
+        })
+      },timeout)
+    })
+  }
   
 //   //做任务
 //   function zoo_doAdditionalTask(taskBody,timeout = 0){
