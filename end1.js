@@ -450,7 +450,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
               //console.log('需要再次执行,如提示活动异常请多次重试，个别任务多次执行也不行就去APP做吧！')
               let taskBody = encodeURIComponent(`{"dataSource":"newshortAward","method":"getTaskAward","reqParams":"{\\"taskToken\\":\\"${data.data.result.taskToken}\\"}","sdkVersion":"1.0.0","clientLanguage":"zh"}`)
               //console.log(taskBody)
-              await qryViewkitCallbackResult(taskBody,7000)
+            //   await qryViewkitCallbackResult(taskBody,7000)
             }
           } catch (e) {
             $.logErr(e, resp);
