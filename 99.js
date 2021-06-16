@@ -665,8 +665,8 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
                 await zoo_getHomeData('ZXTKT011a33MlJa1ogsFjRWn6-7zx55awQ');
                console.log("pk3")
               }
-              await zoo_getTaskDetail()
-              await zoo_getTaskDetail("","app")
+            //   await zoo_getTaskDetail()
+            //   await zoo_getTaskDetail("","app")
             } else {
               return
             }
