@@ -656,7 +656,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
               if (merge.black) return;
               let date = new Date($.time("yyyy/MM/dd HH:mm:ss"));
               if (date.getHours() >= 9 && date.getHours() < 23) {
-                await zoo_pk_getHomeData('sSKNX-MpqKOJsNu-kMrcUca2P-y6wocbUExkHcOUIDcW1s-3lA9AawfroaNSB7Ut')
+                await zoo_pk_getHomeData('')
               }
               //await zoo_pk_assistGroup()
               //if (data.data.result.homeMainInfo.raiseInfo.buttonStatus === 1 )
@@ -769,7 +769,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
         $.post(url, async (err, resp, data) => {
           try {
             if (inviteId !== "") {
-              await $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/30.txt").then((text) => (shareCodeList = text ? text.split('\n') : []))
+              await $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/31.txt").then((text) => (shareCodeList = text ? text.split('\n') : []))
               for (let i in shareCodeList) {
                 if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
                 console.log("===========");
