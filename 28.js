@@ -769,7 +769,7 @@ cron "5 * * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/Quan
         $.post(url, async (err, resp, data) => {
           try {
             if (inviteId !== "") {
-              await $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/28.txt").then((text) => (shareCodeList = text ? text.split('\n') : []))
+              await $.getScript("https://gh.tryxd.cn/https://github.com/x-dr/shareCodeList/blob/main/29.txt").then((text) => (shareCodeList = text ? text.split('\n') : []))
               for (let i in shareCodeList) {
                 if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
                 console.log("===========");
