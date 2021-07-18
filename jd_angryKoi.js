@@ -10,66 +10,48 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
 var kois = process.env.kois ?? ""
 let cookiesArr = []
-var packets = [];
-
+var helps = [];
+var tools= []
 !(async () => {
     if(!kois){
         console.log("请在环境变量中填写需要助力的账号")
     }
     requireConfig()
-    len = cookiesArr.length
-    for (let i = 0; i < len; i++) {
+    for (let i in cookiesArr) {
         cookie = cookiesArr[i]
-        if(!kois){
-            if(i != 0) {
-                break
+        if(kois.indexOf(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])!=-1){
+            var data = await requestApi('h5launch',cookie);
+            switch (data?.data?.result.status) {
+                case 1://火爆
+                    continue;
+                case 2://已经发起过
+                    break;
+                default:
+                    if(data?.data?.result?.redPacketId){
+                        helps.push({redPacketId: data.data.result.redPacketId, success: false, id: i, cookie: cookie})
+                    }
+                    continue;
+            }   
+            data = await requestApi('h5activityIndex',cookie);
+            switch (data?.data?.code) {
+                case 20002://已达拆红包数量限制
+                    break;
+                case 10002://活动正在进行，火爆号
+                    break;
+                case 20001://红包活动正在进行，可拆
+                    helps.push({redPacketId: data.data.result.redpacketInfo.id, success: false, id: i, cookie: cookie})
+                    break;
+                default:
+                    break;
             }
-            console.log(`默认给账号${i+1}助力`)
-        }else if(kois.indexOf(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])==-1)continue
-        data = await requestApi('h5launch',cookie);
-        switch (data?.data?.result.status) {
-            case 1://火爆
-                continue;
-            case 2://已经发起过
-                break;
-            default:
-                if(data?.data?.result?.redPacketId){
-                    packets.push(data.data.result.redPacketId)
-                }
-                continue;
-        }   
-        data = await requestApi('h5activityIndex',cookie);
-        // console.log(data)
-        switch (data?.data?.code) {
-            case 20002://已达拆红包数量限制
-                break;
-            case 10002://活动正在进行，火爆号
-                break;
-            case 20001://红包活动正在进行，可拆
-                packets.push(data.data.result.redpacketInfo.id)
-                break;
-            default:
-                break;
-        }   
+        }
+        tools.push({id: i, cookie: cookie})   
     }
-
-    tools = cookiesArr
-    while (tools.length && packets.length) {
-        var cookie = tools.pop()
-        var packet = packets[0]
-        requestApi('jinli_h5assist',cookie, {"redPacketId": packet}).then(
-            function(data){
-                desc = data?.data?.result?.statusDesc
-                if(desc && desc.indexOf("助力已满")!=-1){
-                    if(packet==packets[0])packets.shift()
-                    tools.unshift(cookie)
-                }else if(!desc){
-                    tools.unshift(cookie)
-                }
-                console.log(desc)
-            }
-        )
-        await $.wait(50)        
+    for(let help of helps){
+        open(help)
+    }
+    while (tools.length) {
+        await $.wait(10000)
     }
 })()  .catch((e) => {
     $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -77,6 +59,25 @@ var packets = [];
   .finally(() => {
     $.done();
   })
+
+function open(help){
+    var tool = tools.pop()
+    if(!tool)return
+    if(help.success)return
+    requestApi('jinli_h5assist', tool.cookie, {
+        "redPacketId": help.redPacketId
+    }).then(function(data){
+        desc = data?.data?.result?.statusDesc
+        if (desc && desc.indexOf("助力已满") != -1) {
+            tools.unshift(tool)
+            help.success=true
+        } else if (!data) {
+            tools.unshift(tool)
+        }
+        console.log(`${tool.id}->${help.id}`, desc)   
+        open(help)         
+    })   
+}
 
 function requestApi(functionId, cookie, body = {}) {
     return new Promise(resolve => {
@@ -295,181 +296,4 @@ function Env(t, e) {
             return s
         }
         getval(t) {
-            return this.isSurge() || this.isLoon() ? $persistentStore.read(t) : this.isQuanX() ? $prefs.valueForKey(t) : this.isNode() ? (this.data = this.loaddata(), this.data[t]) : this.data && this.data[t] || null
-        }
-        setval(t, e) {
-            return this.isSurge() || this.isLoon() ? $persistentStore.write(t, e) : this.isQuanX() ? $prefs.setValueForKey(t, e) : this.isNode() ? (this.data = this.loaddata(), this.data[e] = t, this.writedata(), !0) : this.data && this.data[e] || null
-        }
-        initGotEnv(t) {
-            this.got = this.got ? this.got : require("got"), this.cktough = this.cktough ? this.cktough : require("tough-cookie"), this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar, t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar))
-        }
-        get(t, e = (() => {})) {
-            t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]), this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
-                "X-Surge-Skip-Scripting": !1
-            })), $httpClient.get(t, (t, s, i) => {
-                !t && s && (s.body = i, s.statusCode = s.status), e(t, s, i)
-            })) : this.isQuanX() ? (this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
-                hints: !1
-            })), $task.fetch(t).then(t => {
-                const {
-                    statusCode: s,
-                    statusCode: i,
-                    headers: r,
-                    body: o
-                } = t;
-                e(null, {
-                    status: s,
-                    statusCode: i,
-                    headers: r,
-                    body: o
-                }, o)
-            }, t => e(t))) : this.isNode() && (this.initGotEnv(t), this.got(t).on("redirect", (t, e) => {
-                try {
-                    if (t.headers["set-cookie"]) {
-                        const s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();
-                        s && this.ckjar.setCookieSync(s, null), e.cookieJar = this.ckjar
-                    }
-                } catch (t) {
-                    this.logErr(t)
-                }
-            }).then(t => {
-                const {
-                    statusCode: s,
-                    statusCode: i,
-                    headers: r,
-                    body: o
-                } = t;
-                e(null, {
-                    status: s,
-                    statusCode: i,
-                    headers: r,
-                    body: o
-                }, o)
-            }, t => {
-                const {
-                    message: s,
-                    response: i
-                } = t;
-                e(s, i, i && i.body)
-            }))
-        }
-        post(t, e = (() => {})) {
-            if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isLoon()) this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
-                "X-Surge-Skip-Scripting": !1
-            })), $httpClient.post(t, (t, s, i) => {
-                !t && s && (s.body = i, s.statusCode = s.status), e(t, s, i)
-            });
-            else if (this.isQuanX()) t.method = "POST", this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
-                hints: !1
-            })), $task.fetch(t).then(t => {
-                const {
-                    statusCode: s,
-                    statusCode: i,
-                    headers: r,
-                    body: o
-                } = t;
-                e(null, {
-                    status: s,
-                    statusCode: i,
-                    headers: r,
-                    body: o
-                }, o)
-            }, t => e(t));
-            else if (this.isNode()) {
-                this.initGotEnv(t);
-                const {
-                    url: s,
-                    ...i
-                } = t;
-                this.got.post(s, i).then(t => {
-                    const {
-                        statusCode: s,
-                        statusCode: i,
-                        headers: r,
-                        body: o
-                    } = t;
-                    e(null, {
-                        status: s,
-                        statusCode: i,
-                        headers: r,
-                        body: o
-                    }, o)
-                }, t => {
-                    const {
-                        message: s,
-                        response: i
-                    } = t;
-                    e(s, i, i && i.body)
-                })
-            }
-        }
-        time(t, e = null) {
-            const s = e ? new Date(e) : new Date;
-            let i = {
-                "M+": s.getMonth() + 1,
-                "d+": s.getDate(),
-                "H+": s.getHours(),
-                "m+": s.getMinutes(),
-                "s+": s.getSeconds(),
-                "q+": Math.floor((s.getMonth() + 3) / 3),
-                S: s.getMilliseconds()
-            };
-            /(y+)/.test(t) && (t = t.replace(RegExp.$1, (s.getFullYear() + "").substr(4 - RegExp.$1.length)));
-            for (let e in i) new RegExp("(" + e + ")").test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? i[e] : ("00" + i[e]).substr(("" + i[e]).length)));
-            return t
-        }
-        msg(e = t, s = "", i = "", r) {
-            const o = t => {
-                if (!t) return t;
-                if ("string" == typeof t) return this.isLoon() ? t : this.isQuanX() ? {
-                    "open-url": t
-                } : this.isSurge() ? {
-                    url: t
-                } : void 0;
-                if ("object" == typeof t) {
-                    if (this.isLoon()) {
-                        let e = t.openUrl || t.url || t["open-url"],
-                            s = t.mediaUrl || t["media-url"];
-                        return {
-                            openUrl: e,
-                            mediaUrl: s
-                        }
-                    }
-                    if (this.isQuanX()) {
-                        let e = t["open-url"] || t.url || t.openUrl,
-                            s = t["media-url"] || t.mediaUrl;
-                        return {
-                            "open-url": e,
-                            "media-url": s
-                        }
-                    }
-                    if (this.isSurge()) {
-                        let e = t.url || t.openUrl || t["open-url"];
-                        return {
-                            url: e
-                        }
-                    }
-                }
-            };
-            if (this.isMute || (this.isSurge() || this.isLoon() ? $notification.post(e, s, i, o(r)) : this.isQuanX() && $notify(e, s, i, o(r))), !this.isMuteLog) {
-                let t = ["", "==============📣系统通知📣=============="];
-                t.push(e), s && t.push(s), i && t.push(i), console.log(t.join("\n")), this.logs = this.logs.concat(t)
-            }
-        }
-        log(...t) {
-            t.length > 0 && (this.logs = [...this.logs, ...t]), console.log(t.join(this.logSeparator))
-        }
-        logErr(t, e) {
-            const s = !this.isSurge() && !this.isQuanX() && !this.isLoon();
-            s ? this.log("", `❗️${this.name}, 错误!`, t.stack) : this.log("", `❗️${this.name}, 错误!`, t)
-        }
-        wait(t) {
-            return new Promise(e => setTimeout(e, t))
-        }
-        done(t = {}) {
-            const e = (new Date).getTime(),
-                s = (e - this.startTime) / 1e3;
-            this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`), this.log(), (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t)
-        }
-    }(t, e)
-}
+            return this.isSurge() || this.isLoon() ? $persistentStore.read(t) : 
